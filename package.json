@@ -9,6 +9,8 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@math.gl/core": "^3.6.3",
+    "sass": "^1.56.1",
     "vue": "^3.2.37"
   },
   "devDependencies": {
