@@ -1,7 +1,7 @@
 
 <template>
   <main>
-    <WebGlBackground :element="simpleElement" style="min-height: 100vh; min-width: 100vh">
+    <WebGlBackground :element="simpleElement">
       THis is the content
     </WebGlBackground>
   </main>
@@ -15,6 +15,7 @@ const simpleElement = SimpleElement
 
 </script>
 
-<style scoped>
-
+<style lang="sass">
+.web-gl-background
+  min-height: 500px
 </style>

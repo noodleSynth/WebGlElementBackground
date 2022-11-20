@@ -34,9 +34,8 @@ const loadingImages : HTMLImageElement[] = []
 
 export const loadTexture = (ctx: WebGLRenderingContext, url: string) => {
 
-  return new Promise<WebGLTexture>(y => {
+  return new Promise<{texture: WebGLTexture, w: number, h: number}>(y => {
     const texture = ctx.createTexture()
-    console.log(texture)
     const image = new Image()
   
     ctx.bindTexture(ctx.TEXTURE_2D, texture);
@@ -48,13 +47,13 @@ export const loadTexture = (ctx: WebGLRenderingContext, url: string) => {
       ctx.bindTexture(ctx.TEXTURE_2D, texture);
       ctx.texImage2D(
           ctx.TEXTURE_2D, 0, ctx.RGBA, ctx.RGBA, ctx.UNSIGNED_BYTE, image);
-      ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MAG_FILTER, ctx.LINEAR);
-      ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MIN_FILTER, ctx.LINEAR);
+      ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MAG_FILTER, ctx.NEAREST);
+      ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MIN_FILTER, ctx.NEAREST);
       ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_S, ctx.CLAMP_TO_EDGE);
       ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_T, ctx.CLAMP_TO_EDGE);
       //ctx.generateMipmap(ctx.TEXTURE_2D)
       ctx.bindTexture(ctx.TEXTURE_2D, null);
-      y(texture!)
+      y({texture: texture!, w: image.width, h: image.height})
     }
     loadingImages.push(image)
   
