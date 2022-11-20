@@ -44,7 +44,7 @@ const props = defineProps<{
 
 const [scale, ps, sampleOffset, sampleSize] = props.element.uniforms
 const sampleOffsetComp = ref(new Vector2(0))
-scale.ref!.value = .1;
+scale.ref!.value = .5;
 sampleOffset.ref!.value = new Vector2(.5, .5)
 
 // sampleOffset.value = new Vector3(0.0, 0.0, 1)

@@ -2,7 +2,12 @@
 
 An experiment in leveraging WebGL to generate animated backgrounds for VueJs components
 
-![Preview Gif](./preview.gif)
+## Gifs
+| | |
+|--------------|-----------|
+|![Scale Example](./docs/assets/TextureScale.gif)| ![YOffset Example](./docs/assets/XOffset.gif)|
+|![YOffset Example](./docs/assets/YOffset.gif)| ![Blur Example](./docs/assets/Blur.gif)|
+
 ## Requirements
 - A browser that supports WebGL2
 
@@ -13,7 +18,14 @@ An experiment in leveraging WebGL to generate animated backgrounds for VueJs com
 - Run `npm run dev`
 - Open the dev server within the browser
 
-## To-DO
+## Wip
 - Make an easier way to bind HTML events/inputs to uniforms
-- Make more patterns
 - Expand on general architecture 
+
+## To-DO
+- Make more patterns
+
+## Changelog
+
+### 20-11-22
+Created a `customRef` to trigger `uniform` updates. This allows the direct binding of `uniform` values to html inputs through Vue
